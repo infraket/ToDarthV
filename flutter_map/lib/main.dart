@@ -87,7 +87,7 @@ class _MyAppState extends State<MyApp> {
 
             onPressed: () {
               setState(() {
-                _pc_one.open();
+                _pc.open();
               });
             },
             icon: Icon(
@@ -121,37 +121,45 @@ class _MyAppState extends State<MyApp> {
 
     ];
     return Scaffold(
-      body: Center(
+      appBar: AppBar(
+         backgroundColor: Colors.white,
+          leading:
+              Icon(Icons.menu,color: Colors.black, size: 30),
 
-        child: Container(
-
-        child: Column(
-          children:[
-
-
-            Flexible(
-              child: FlutterMap(
-
-                 options: MapOptions(
-                    center: LatLng(-41.28664,174.77557),
-                      zoom: 5
-                  ),
-                      children: [
-                      TileLayer(
-                    urlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-                    subdomains: ['a','b','c'],
-                      ),
-
-                     MarkerLayer(
-                   markers: markers,
-
-              ),
+        title: Text("Lorem ipsum"),
+      ),
+       body:
+      // Center(
+      //
+      //   child: Container(
+      //
+      //   child: Column(
+      //     children:[
 
 
-            ],
-        )
-
-            ),
+        //     Flexible(
+        //       child: FlutterMap(
+        //
+        //          options: MapOptions(
+        //             center: LatLng(-41.28664,174.77557),
+        //               zoom: 5
+        //           ),
+        //               children: [
+        //               TileLayer(
+        //             urlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+        //             subdomains: ['a','b','c'],
+        //               ),
+        //
+        //              MarkerLayer(
+        //            markers: markers,
+        //
+        //       ),
+        //
+        //
+        //     ],
+        // )
+        //
+        //     ),
             SlidingUpPanel(
               //
               // defaultPanelState:PanelState.CLOSED,
@@ -207,27 +215,44 @@ class _MyAppState extends State<MyApp> {
               //
               //   ),
               //   ),
+              body: Center(
+                child:
+              Flexible(
+                      child: FlutterMap(
 
+                         options: MapOptions(
+                            center: LatLng(-41.28664,174.77557),
+                              zoom: 5
+                          ),
+                              children: [
+                              TileLayer(
+                            urlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                            subdomains: ['a','b','c'],
+                              ),
+
+                             MarkerLayer(
+                           markers: markers,
+
+                      ),
+
+
+                    ],
+                )
+
+                    ),
+              ),
 
 
 
               panel:
-
-
-    Column (
-
-
-
+                     Column (
                   children: <Widget>[
+                    SizedBox(height: 30),
                   Row(
-
-                    children: const <Widget>[
-
-                      SizedBox(height: 20),
-
-
+                    children: [
+                      SizedBox(width: 20),
                       Icon(
-                        Icons.account_box_outlined,
+                        Icons.account_box_sharp,
                         size: 26.0,
                       ),
                       SizedBox(width: 10),
@@ -237,13 +262,16 @@ class _MyAppState extends State<MyApp> {
                             fontSize: 16,
                               fontWeight:FontWeight.bold)
                       ),
-                      SizedBox(width: 80),
+
+                      SizedBox(width: 40),
                       Icon(
-                        Icons.star_rounded,
-                        size: 26.0,
-                        color: Colors.deepPurple
+                          Icons.star_rounded,
+                          size: 26.0,
+                          color: Colors.deepPurple
                       ),
-                      Icon(
+
+
+                                          Icon(
                           Icons.star_rounded,
                           size: 26.0,
                           color: Colors.deepPurple
@@ -254,16 +282,33 @@ class _MyAppState extends State<MyApp> {
                           color: Colors.deepPurple
                       ),
 
-                   ],
+            ],
+),
 
-                  ),
 
                     SizedBox(height: 30),
-                    Text('# test #test',
-                        style: TextStyle(color: Colors.black,
+              Row(
+                  children: const <Widget> [
+                    SizedBox(width: 13),
+                    Text('# lorem # ipsum', style: TextStyle(color: Colors.black,
                             fontSize: 14,
                         )
                     ),
+                    SizedBox(width: 210),
+                    Icon(
+                      Icons.whatsapp_sharp,
+                      size: 26.0,
+                      // color: Colors.green,
+
+                    ),
+                    Icon(
+                      Icons.telegram_sharp,
+                      size: 26.0,
+                      // color: Colors.blue,
+
+                    ),
+                  ],
+              ),
                     SizedBox(height: 30),
                      Row(
                 mainAxisAlignment:  MainAxisAlignment.spaceAround,
@@ -291,7 +336,7 @@ class _MyAppState extends State<MyApp> {
                 Icon(
                   Icons.phone,
                   size: 26.0,
-                  color: Colors.grey
+                  color: Colors.black
                 ),
                 Text('пн-пт 9.00 - 21.00',
                 style: TextStyle(color: Colors.grey,
@@ -302,10 +347,8 @@ class _MyAppState extends State<MyApp> {
                     SizedBox(height: 30),
                   Row(
                     children: [
-                    Container(
-                      child: IconButton(
 
-
+                       IconButton(
                         onPressed: () {
                           setState(() {
                             click = !click;
@@ -315,12 +358,10 @@ class _MyAppState extends State<MyApp> {
                             size: 26.0,
 
                             click?  Icons.favorite_border :  Icons.favorite),
-                        color: click? Colors.red : Colors.red,
+                        color: click? Colors.black : Colors.red,
+                       splashRadius: 50,
+                           splashColor: Colors.lightGreenAccent
                       ),
-
-                    ),
-                    // mainAxisAlignment:  MainAxisAlignment.spaceBetween,
-                    // children: const <Widget>[
 
                       Text('В избранное',
                           textAlign: TextAlign.left,
@@ -328,9 +369,8 @@ class _MyAppState extends State<MyApp> {
                             fontSize: 16,)
                       ),
                       SizedBox(width: 80),
-                      Container(
-                        child: IconButton(
 
+                         IconButton(
 
                           onPressed: () {
                             setState(() {
@@ -341,13 +381,9 @@ class _MyAppState extends State<MyApp> {
                               size: 26.0,
 
                               click_bm?  Icons.bookmark_add_outlined :  Icons.bookmark_add),
-                          color: click_bm? Colors.red : Colors.red,
+                          color: click_bm? Colors.black : Colors.red,
+
                         ),
-
-                      ),
-
-
-
                   Text('В закладки',
                       style: TextStyle(color: Colors.black,
                         fontSize: 16,))
@@ -356,218 +392,220 @@ class _MyAppState extends State<MyApp> {
                   ],
 
     ),
+           borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
             ),
-            SlidingUpPanel(
-              //
-              // defaultPanelState:PanelState.CLOSED,
-              minHeight: size.height * 0,
+            // SlidingUpPanel(
+            //   //
+            //   // defaultPanelState:PanelState.CLOSED,
+            //   minHeight: size.height * 0,
+            //
+            //
+            //   controller: _pc_one,
+            //   // collapsed: Container(
+            //   // decoration: BoxDecoration(
+            //   // color: Colors.blueGrey,
+            //   // borderRadius: BorderRadius.only(
+            //   // topLeft: Radius.circular(24.0), topRight: Radius.circular(24.0)),
+            //   // ),
+            //   //
+            //   //
+            //   //   child:  Row(
+            //   //     // mainAxisAlignment:  MainAxisAlignment.spaceAround,
+            //   //     children: const <Widget>[
+            //   //
+            //   //       SizedBox(height: 20),
+            //   //
+            //   //
+            //   //       Icon(
+            //   //         Icons.account_box_outlined,
+            //   //         size: 26.0,
+            //   //       ),
+            //   //       SizedBox(width: 10),
+            //   //
+            //   //       Text('great_instagram_account',
+            //   //           style: TextStyle(color: Colors.black,
+            //   //               fontSize: 16,
+            //   //               fontWeight:FontWeight.bold)
+            //   //       ),
+            //   //       SizedBox(width: 80),
+            //   //       Icon(
+            //   //           Icons.star_rounded,
+            //   //           size: 26.0,
+            //   //           color: Colors.deepPurple
+            //   //       ),
+            //   //       Icon(
+            //   //           Icons.star_rounded,
+            //   //           size: 26.0,
+            //   //           color: Colors.deepPurple
+            //   //       ),
+            //   //       Icon(
+            //   //           Icons.star_rounded,
+            //   //           size: 26.0,
+            //   //           color: Colors.deepPurple
+            //   //       ),
+            //   //
+            //   //     ],
+            //   //
+            //   //   ),
+            //   //   ),
+            //
+            //
+            //
+            //
+            //   panel:
+            //
+            //
+            //   Column (
+            //
+            //
+            //     children: <Widget>[
+            //       SizedBox(height: 30),
+            //       Row(
+            //
+            //         children: const <Widget>[
+            //
+            //           SizedBox(width: 10),
+            //
+            //
+            //           Icon(
+            //             Icons.account_box_outlined,
+            //             size: 26.0,
+            //           ),
+            //           SizedBox(width: 10),
+            //
+            //           Text('great_instagram_account2',
+            //               style: TextStyle(color: Colors.black,
+            //                   fontSize: 16,
+            //                   fontWeight:FontWeight.bold)
+            //           ),
+            //           SizedBox(width: 60),
+            //           Icon(
+            //               Icons.star_rounded,
+            //               size: 26.0,
+            //               color: Colors.deepPurple
+            //           ),
+            //           Icon(
+            //               Icons.star_rounded,
+            //               size: 26.0,
+            //               color: Colors.deepPurple
+            //           ),
+            //           Icon(
+            //               Icons.star_rounded,
+            //               size: 26.0,
+            //               color: Colors.deepPurple
+            //           ),
+            //
+            //         ],
+            //
+            //       ),
+            //
+            //       SizedBox(height: 30),
+            //       Text('# test #test',
+            //           style: TextStyle(color: Colors.black,
+            //             fontSize: 14,
+            //           )
+            //       ),
+            //       SizedBox(height: 30),
+            //       Row(
+            //         mainAxisAlignment:  MainAxisAlignment.spaceAround,
+            //         children: const <Widget>[
+            //           Icon(
+            //             Icons.calendar_month_rounded,
+            //             size: 26.0,
+            //
+            //           ),
+            //           Text('Записаться',
+            //               style: TextStyle(color: Colors.black,
+            //                 fontSize: 16,
+            //
+            //               )
+            //           ),
+            //           Icon(
+            //             Icons.message,
+            //             size: 26.0,
+            //           ),
+            //           Text('Спросить',
+            //               style: TextStyle(color: Colors.black,
+            //                 fontSize: 16,
+            //               )
+            //           ),
+            //           Icon(
+            //               Icons.phone,
+            //               size: 26.0,
+            //               color: Colors.grey
+            //           ),
+            //           Text('пн-пт 9.00 - 21.00',
+            //               style: TextStyle(color: Colors.grey,
+            //                 fontSize: 16,))
+            //         ],
+            //       ),
+            //
+            //       SizedBox(height: 30),
+            //       Row(
+            //         children: [
+            //           Container(
+            //             child: IconButton(
+            //
+            //
+            //               onPressed: () {
+            //                 setState(() {
+            //                   click = !click;
+            //                 });
+            //               },
+            //               icon: Icon(
+            //                   size: 26.0,
+            //
+            //                   click?  Icons.favorite_border :  Icons.favorite),
+            //               color: click? Colors.red : Colors.red,
+            //             ),
+            //
+            //           ),
+            //
+            //
+            //           Text('В избранное',
+            //               textAlign: TextAlign.left,
+            //               style: TextStyle(color: Colors.black,
+            //                 fontSize: 16,)
+            //           ),
+            //           SizedBox(width: 80),
+            //           Container(
+            //             child: IconButton(
+            //
+            //
+            //               onPressed: () {
+            //                 setState(() {
+            //                   click_bm = !click_bm;
+            //                 });
+            //               },
+            //               icon: Icon(
+            //                   size: 26.0,
+            //
+            //                   click_bm?  Icons.bookmark_add_outlined :  Icons.bookmark_add),
+            //               color: click_bm? Colors.red : Colors.red,
+            //             ),
+            //
+            //           ),
+            //
+            //
+            //           Text('В закладки',
+            //               style: TextStyle(color: Colors.black,
+            //                 fontSize: 16,))
+            //         ],
+            //       ),
+            //     ],
+            //
+            //   ),
+            );
 
-
-              controller: _pc_one,
-              // collapsed: Container(
-              // decoration: BoxDecoration(
-              // color: Colors.blueGrey,
-              // borderRadius: BorderRadius.only(
-              // topLeft: Radius.circular(24.0), topRight: Radius.circular(24.0)),
-              // ),
-              //
-              //
-              //   child:  Row(
-              //     // mainAxisAlignment:  MainAxisAlignment.spaceAround,
-              //     children: const <Widget>[
-              //
-              //       SizedBox(height: 20),
-              //
-              //
-              //       Icon(
-              //         Icons.account_box_outlined,
-              //         size: 26.0,
-              //       ),
-              //       SizedBox(width: 10),
-              //
-              //       Text('great_instagram_account',
-              //           style: TextStyle(color: Colors.black,
-              //               fontSize: 16,
-              //               fontWeight:FontWeight.bold)
-              //       ),
-              //       SizedBox(width: 80),
-              //       Icon(
-              //           Icons.star_rounded,
-              //           size: 26.0,
-              //           color: Colors.deepPurple
-              //       ),
-              //       Icon(
-              //           Icons.star_rounded,
-              //           size: 26.0,
-              //           color: Colors.deepPurple
-              //       ),
-              //       Icon(
-              //           Icons.star_rounded,
-              //           size: 26.0,
-              //           color: Colors.deepPurple
-              //       ),
-              //
-              //     ],
-              //
-              //   ),
-              //   ),
-
-
-
-
-              panel:
-
-
-              Column (
-
-
-                children: <Widget>[
-                  Row(
-
-                    children: const <Widget>[
-
-                      SizedBox(height: 20),
-
-
-                      Icon(
-                        Icons.account_box_outlined,
-                        size: 26.0,
-                      ),
-                      SizedBox(width: 10),
-
-                      Text('great_instagram_account2',
-                          style: TextStyle(color: Colors.black,
-                              fontSize: 16,
-                              fontWeight:FontWeight.bold)
-                      ),
-                      SizedBox(width: 80),
-                      Icon(
-                          Icons.star_rounded,
-                          size: 26.0,
-                          color: Colors.deepPurple
-                      ),
-                      Icon(
-                          Icons.star_rounded,
-                          size: 26.0,
-                          color: Colors.deepPurple
-                      ),
-                      Icon(
-                          Icons.star_rounded,
-                          size: 26.0,
-                          color: Colors.deepPurple
-                      ),
-
-                    ],
-
-                  ),
-
-                  SizedBox(height: 30),
-                  Text('# test #test',
-                      style: TextStyle(color: Colors.black,
-                        fontSize: 14,
-                      )
-                  ),
-                  SizedBox(height: 30),
-                  Row(
-                    mainAxisAlignment:  MainAxisAlignment.spaceAround,
-                    children: const <Widget>[
-                      Icon(
-                        Icons.calendar_month_rounded,
-                        size: 26.0,
-
-                      ),
-                      Text('Записаться',
-                          style: TextStyle(color: Colors.black,
-                            fontSize: 16,
-
-                          )
-                      ),
-                      Icon(
-                        Icons.message,
-                        size: 26.0,
-                      ),
-                      Text('Спросить',
-                          style: TextStyle(color: Colors.black,
-                            fontSize: 16,
-                          )
-                      ),
-                      Icon(
-                          Icons.phone,
-                          size: 26.0,
-                          color: Colors.grey
-                      ),
-                      Text('пн-пт 9.00 - 21.00',
-                          style: TextStyle(color: Colors.grey,
-                            fontSize: 16,))
-                    ],
-                  ),
-
-                  SizedBox(height: 30),
-                  Row(
-                    children: [
-                      Container(
-                        child: IconButton(
-
-
-                          onPressed: () {
-                            setState(() {
-                              click = !click;
-                            });
-                          },
-                          icon: Icon(
-                              size: 26.0,
-
-                              click?  Icons.favorite_border :  Icons.favorite),
-                          color: click? Colors.red : Colors.red,
-                        ),
-
-                      ),
-
-
-                      Text('В избранное',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(color: Colors.black,
-                            fontSize: 16,)
-                      ),
-                      SizedBox(width: 80),
-                      Container(
-                        child: IconButton(
-
-
-                          onPressed: () {
-                            setState(() {
-                              click_bm = !click_bm;
-                            });
-                          },
-                          icon: Icon(
-                              size: 26.0,
-
-                              click_bm?  Icons.bookmark_add_outlined :  Icons.bookmark_add),
-                          color: click_bm? Colors.red : Colors.red,
-                        ),
-
-                      ),
-
-
-                      Text('В закладки',
-                          style: TextStyle(color: Colors.black,
-                            fontSize: 16,))
-                    ],
-                  ),
-                ],
-
-              ),
-            ),
-
-          ],
-              ),
-
-           ),
-
-
-
-        ),
-       );
+          // ],
+       //        ),
+       //
+       //     ),
+       //
+       //
+       //
+       //  ),
+       // );
 
   }
 }
