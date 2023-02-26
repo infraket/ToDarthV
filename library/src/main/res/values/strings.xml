@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Library</string>
+    <string name="enter_name">Book Name</string>
+    <string name="add_record">Add Book</string>
+    <string name="btn_update">Update</string>
+    <string name="btn_delete">Delete</string>
+    <string name="empty_list_text">Home Library</string>
+    <string name="enter_desc">Currency</string>
+    <string name="enter_title">Book</string>
+</resources>
